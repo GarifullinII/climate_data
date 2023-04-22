@@ -1,4 +1,6 @@
 # climate_data
 
-Current weather forecast.
+Current weather forecast (mobile and desktop applications).
 
+Use:
+- Geolocator
