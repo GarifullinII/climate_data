@@ -99,17 +99,18 @@ class _LocationScreenState extends State<LocationScreen> {
                     padding: const EdgeInsets.all(16.0),
                     child: MaterialButton(
                       onPressed: () async {
-                        var typeName = await Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) {
-                              return const CityScreen();
-                            },
-                          ),
-                        );
+                        var typeName = await Navigator.pushNamed(context, CityScreen.id);
+                        // var typeName = await Navigator.push(
+                        //   context,
+                        //   MaterialPageRoute(
+                        //     builder: (context) {
+                        //       return const CityScreen();
+                        //     },
+                        //   ),
+                        // );
 
                         if (typeName != null) {
-                          var weatherData = await weather.getCityWeather(typeName);
+                          var weatherData = await weather.getCityWeather(typeName.toString());
                           updateUI(weatherData);
                         }
                       },
