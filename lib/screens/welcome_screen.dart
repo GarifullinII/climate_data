@@ -21,14 +21,19 @@ class _WelcomeScreenState extends State<WelcomeScreen>
     super.initState();
 
     controller = AnimationController(
-      duration: const Duration(seconds: 1),
+      duration: const Duration(seconds: 5),
       vsync: this,
     );
 
-    animation = CurvedAnimation(
-      parent: controller,
-      curve: Curves.decelerate,
-    );
+    // animation = CurvedAnimation(
+    //   parent: controller,
+    //   curve: Curves.decelerate,
+    // );
+
+    animation = ColorTween(
+      begin: Colors.orange,
+      end: Colors.black,
+    ).animate(controller);
 
     controller.forward();
 
@@ -52,16 +57,16 @@ class _WelcomeScreenState extends State<WelcomeScreen>
                 Hero(
                   tag: 'logo',
                   child: SizedBox(
-                    height: animation.value * 100,
+                    height: 140.0,
                     child: Image.asset('images/logo.png'),
                   ),
                 ),
-                const Text(
+                Text(
                   'Climate',
                   style: TextStyle(
                     fontSize: 45.0,
                     fontWeight: FontWeight.w900,
-                    color: Colors.black,
+                    color: animation.value,
                   ),
                 ),
               ],
