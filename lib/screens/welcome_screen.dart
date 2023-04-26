@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class WelcomeScreen extends StatefulWidget {
+  static String id = 'welcome_screen';
+
   const WelcomeScreen({Key? key}) : super(key: key);
 
   @override
@@ -19,9 +21,13 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Row(
-              children: const [
-                Text(
-                  'Climate data',
+              children: [
+                SizedBox(
+                  height: 100.0,
+                  child: Image.asset('images/logo.png'),
+                ),
+                const Text(
+                  'Climate',
                   style: TextStyle(
                     fontSize: 45.0,
                     fontWeight: FontWeight.w900,

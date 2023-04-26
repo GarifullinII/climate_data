@@ -22,14 +22,14 @@ class ClimateData extends StatelessWidget {
         ),
       ),
       home: const WelcomeScreen(),
-      initialRoute: 'welcome_screen',
+      initialRoute: WelcomeScreen.id,
       routes: {
-        'welcome_screen': (context) => const WelcomeScreen(),
-        'login_screen': (context) => const LoginScreen(),
-        'registration_screen': (context) => const RegistrationScreen(),
-        'loading_screen': (context) => const LoadingScreen(),
-        'location_screen': (context) => const LocationScreen(),
-        'city_screen': (context) => const CityScreen(),
+        WelcomeScreen.id: (context) => const WelcomeScreen(),
+        LoginScreen.id: (context) => const LoginScreen(),
+        RegistrationScreen.id: (context) => const RegistrationScreen(),
+        LoadingScreen.id: (context) => const LoadingScreen(),
+        LocationScreen.id: (context) => const LocationScreen(),
+        CityScreen.id: (context) => const CityScreen(),
       },
     );
   }

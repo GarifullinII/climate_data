@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class RegistrationScreen extends StatelessWidget {
+  static String id = 'registration_screen';
+
   const RegistrationScreen({Key? key}) : super(key: key);
 
   @override
@@ -12,8 +14,8 @@ class RegistrationScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: <Widget>[
-            Container(
+          children: [
+            SizedBox(
               height: 200.0,
               child: Image.asset('images/logo.png'),
             ),

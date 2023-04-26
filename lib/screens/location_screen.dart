@@ -4,6 +4,8 @@ import '../utilities/constants.dart';
 import 'city_screen.dart';
 
 class LocationScreen extends StatefulWidget {
+  static String id = 'location_screen';
+
   const LocationScreen({super.key, this.locationWeather});
 
   final dynamic locationWeather;
