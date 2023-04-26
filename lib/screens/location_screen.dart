@@ -58,7 +58,9 @@ class _LocationScreenState extends State<LocationScreen> {
             image: const AssetImage('images/location_background.jpg'),
             fit: BoxFit.cover,
             colorFilter: ColorFilter.mode(
-                Colors.white.withOpacity(0.8), BlendMode.dstATop),
+              Colors.white.withOpacity(0.8),
+              BlendMode.dstATop,
+            ),
           ),
         ),
         constraints: const BoxConstraints.expand(),
@@ -66,10 +68,10 @@ class _LocationScreenState extends State<LocationScreen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: <Widget>[
+            children: [
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
+                children: [
                   Padding(
                     padding: const EdgeInsets.all(16.0),
                     child: MaterialButton(
@@ -99,7 +101,8 @@ class _LocationScreenState extends State<LocationScreen> {
                     padding: const EdgeInsets.all(16.0),
                     child: MaterialButton(
                       onPressed: () async {
-                        var typeName = await Navigator.pushNamed(context, CityScreen.id);
+                        var typeName =
+                            await Navigator.pushNamed(context, CityScreen.id);
                         // var typeName = await Navigator.push(
                         //   context,
                         //   MaterialPageRoute(
@@ -110,7 +113,8 @@ class _LocationScreenState extends State<LocationScreen> {
                         // );
 
                         if (typeName != null) {
-                          var weatherData = await weather.getCityWeather(typeName.toString());
+                          var weatherData =
+                              await weather.getCityWeather(typeName.toString());
                           updateUI(weatherData);
                         }
                       },

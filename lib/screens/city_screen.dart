@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../components/rounded_button.dart';
 import '../utilities/constants.dart';
 
 class CityScreen extends StatefulWidget {
@@ -55,14 +56,12 @@ class _CityScreenState extends State<CityScreen> {
                   },
                 ),
               ),
-              MaterialButton(
+              RoundedButton(
+                color: Colors.blueAccent,
+                title: 'Get Weather',
                 onPressed: () {
                   Navigator.pop(context, cityName);
                 },
-                child: const Text(
-                  'Get Weather',
-                  style: kButtonTextStyle,
-                ),
               ),
             ],
           ),

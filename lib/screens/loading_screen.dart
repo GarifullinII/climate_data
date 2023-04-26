@@ -1,6 +1,7 @@
 import 'package:climate_data/services/weather.dart';
 import 'package:flutter/material.dart';
 import 'package:climate_data/screens/location_screen.dart';
+import '../components/rounded_button.dart';
 import '../utilities/constants.dart';
 
 class LoadingScreen extends StatefulWidget {
@@ -33,16 +34,12 @@ class _LoadingScreenState extends State<LoadingScreen> {
     return Scaffold(
       // backgroundColor: Colors.white,
       body: Center(
-        child: MaterialButton(
+        child: RoundedButton(
+          color: Colors.blueAccent,
+          title: 'Get Weather',
           onPressed: () {
             _getLocationData();
           },
-          minWidth: 200.0,
-          height: 42.0,
-          child: const Text(
-            'Get Weather',
-            style: kButtonTextStyle,
-          ),
         ),
       ),
     );
