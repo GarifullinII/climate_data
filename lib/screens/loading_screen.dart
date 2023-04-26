@@ -1,7 +1,6 @@
 import 'package:climate_data/services/weather.dart';
 import 'package:flutter/material.dart';
 import 'package:climate_data/screens/location_screen.dart';
-
 import '../utilities/constants.dart';
 
 class LoadingScreen extends StatefulWidget {
@@ -30,13 +29,16 @@ class _LoadingScreenState extends State<LoadingScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // backgroundColor: Colors.white,
       body: Center(
-        child: ElevatedButton(
+        child: MaterialButton(
           onPressed: () {
             _getLocationData();
           },
+          minWidth: 200.0,
+          height: 42.0,
           child: const Text(
-            'get weather',
+            'Get Weather',
             style: kButtonTextStyle,
           ),
         ),

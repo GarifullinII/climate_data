@@ -70,7 +70,19 @@ class _LocationScreenState extends State<LocationScreen> {
                 children: <Widget>[
                   Padding(
                     padding: const EdgeInsets.all(16.0),
-                    child: ElevatedButton(
+                    child: MaterialButton(
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      child: const Icon(
+                        Icons.arrow_back_ios,
+                        size: 25.0,
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: MaterialButton(
                       onPressed: () async {
                         var weatherData = await weather.getLocationWeather();
                         updateUI(weatherData);
@@ -83,7 +95,7 @@ class _LocationScreenState extends State<LocationScreen> {
                   ),
                   Padding(
                     padding: const EdgeInsets.all(16.0),
-                    child: ElevatedButton(
+                    child: MaterialButton(
                       onPressed: () async {
                         var typeName = await Navigator.push(
                           context,

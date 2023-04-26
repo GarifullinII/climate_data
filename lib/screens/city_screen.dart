@@ -25,12 +25,12 @@ class _CityScreenState extends State<CityScreen> {
         constraints: const BoxConstraints.expand(),
         child: SafeArea(
           child: Column(
-            children: <Widget>[
+            children: [
               Align(
                 alignment: Alignment.topLeft,
                 child: Padding(
                   padding: const EdgeInsets.all(16.0),
-                  child: ElevatedButton(
+                  child: MaterialButton(
                     onPressed: () {
                       Navigator.pop(context);
                     },
@@ -53,12 +53,12 @@ class _CityScreenState extends State<CityScreen> {
                   },
                 ),
               ),
-              ElevatedButton(
+              MaterialButton(
                 onPressed: () {
                   Navigator.pop(context, cityName);
                 },
                 child: const Text(
-                  'get weather',
+                  'Get Weather',
                   style: kButtonTextStyle,
                 ),
               ),
