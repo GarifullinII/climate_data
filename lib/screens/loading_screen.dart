@@ -4,7 +4,7 @@ import 'package:climate_data/screens/location_screen.dart';
 import '../utilities/constants.dart';
 
 class LoadingScreen extends StatefulWidget {
-  static String id = 'loading_screen';
+  static const String id = 'loading_screen';
 
   const LoadingScreen({Key? key}) : super(key: key);
 

@@ -3,7 +3,7 @@ import 'package:climate_data/screens/registration_screen.dart';
 import 'package:flutter/material.dart';
 
 class WelcomeScreen extends StatefulWidget {
-  static String id = 'welcome_screen';
+  static const String id = 'welcome_screen';
 
   const WelcomeScreen({Key? key}) : super(key: key);
 
