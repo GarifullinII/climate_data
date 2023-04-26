@@ -1,5 +1,6 @@
 import 'package:climate_data/services/weather.dart';
 import 'package:flutter/material.dart';
+import '../components/without_background_button.dart';
 import '../utilities/constants.dart';
 import 'city_screen.dart';
 
@@ -72,57 +73,39 @@ class _LocationScreenState extends State<LocationScreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.all(16.0),
-                    child: MaterialButton(
-                      onPressed: () {
-                        Navigator.pop(context);
-                      },
-                      child: const Icon(
-                        Icons.arrow_back_ios,
-                        size: 25.0,
-                      ),
-                    ),
+                  WithoutBackgroundButton(
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    icon: Icons.arrow_back_ios,
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(16.0),
-                    child: MaterialButton(
-                      onPressed: () async {
-                        var weatherData = await weather.getLocationWeather();
-                        updateUI(weatherData);
-                      },
-                      child: const Icon(
-                        Icons.near_me,
-                        size: 25.0,
-                      ),
-                    ),
+                  WithoutBackgroundButton(
+                    onPressed: () async {
+                      var weatherData = await weather.getLocationWeather();
+                      updateUI(weatherData);
+                    },
+                    icon: Icons.near_me,
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(16.0),
-                    child: MaterialButton(
-                      onPressed: () async {
-                        var typeName =
-                            await Navigator.pushNamed(context, CityScreen.id);
-                        // var typeName = await Navigator.push(
-                        //   context,
-                        //   MaterialPageRoute(
-                        //     builder: (context) {
-                        //       return const CityScreen();
-                        //     },
-                        //   ),
-                        // );
+                  WithoutBackgroundButton(
+                    onPressed: () async {
+                      var typeName =
+                          await Navigator.pushNamed(context, CityScreen.id);
+                      // var typeName = await Navigator.push(
+                      //   context,
+                      //   MaterialPageRoute(
+                      //     builder: (context) {
+                      //       return const CityScreen();
+                      //     },
+                      //   ),
+                      // );
 
-                        if (typeName != null) {
-                          var weatherData =
-                              await weather.getCityWeather(typeName.toString());
-                          updateUI(weatherData);
-                        }
-                      },
-                      child: const Icon(
-                        Icons.location_city,
-                        size: 25.0,
-                      ),
-                    ),
+                      if (typeName != null) {
+                        var weatherData =
+                            await weather.getCityWeather(typeName.toString());
+                        updateUI(weatherData);
+                      }
+                    },
+                    icon: Icons.location_city,
                   ),
                 ],
               ),
@@ -160,3 +143,9 @@ class _LocationScreenState extends State<LocationScreen> {
     );
   }
 }
+
+// onPressed: () {
+// Navigator.pop(context);
+// },
+// child: const Icon(
+// Icons.arrow_back_ios,

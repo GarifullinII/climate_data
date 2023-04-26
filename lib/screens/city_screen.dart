@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../components/rounded_button.dart';
+import '../components/without_background_button.dart';
 import '../utilities/constants.dart';
 
 class CityScreen extends StatefulWidget {
@@ -12,7 +13,6 @@ class CityScreen extends StatefulWidget {
 }
 
 class _CityScreenState extends State<CityScreen> {
-
   late String cityName;
 
   @override
@@ -31,17 +31,11 @@ class _CityScreenState extends State<CityScreen> {
             children: [
               Align(
                 alignment: Alignment.topLeft,
-                child: Padding(
-                  padding: const EdgeInsets.all(16.0),
-                  child: MaterialButton(
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                    child: const Icon(
-                      Icons.arrow_back_ios,
-                      size: 25.0,
-                    ),
-                  ),
+                child: WithoutBackgroundButton(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  icon: Icons.arrow_back_ios,
                 ),
               ),
               Container(
