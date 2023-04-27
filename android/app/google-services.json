@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "54055647541",
+    "project_id": "climatedata-d3bac",
+    "storage_bucket": "climatedata-d3bac.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:54055647541:android:68d5783296dfe44d21747c",
+        "android_client_info": {
+          "package_name": "com.gii.climate_data"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "54055647541-dkbakvsv5u0unbbk4rshlgf7tcs4hclb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDm1uSqu43OWjeVP5tPP6_smRkZbhSIhW0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "54055647541-dkbakvsv5u0unbbk4rshlgf7tcs4hclb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

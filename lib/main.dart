@@ -22,7 +22,7 @@ class ClimateData extends StatelessWidget {
         ),
       ),
       home: const WelcomeScreen(),
-      initialRoute: LoadingScreen.id,
+      initialRoute: WelcomeScreen.id,
       routes: {
         WelcomeScreen.id: (context) => const WelcomeScreen(),
         LoginScreen.id: (context) => const LoginScreen(),
