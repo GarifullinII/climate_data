@@ -3,11 +3,16 @@ import 'package:flutter/material.dart';
 
 import '../components/rounded_button.dart';
 
-class RegistrationScreen extends StatelessWidget {
+class RegistrationScreen extends StatefulWidget {
   static const String id = 'registration_screen';
 
   const RegistrationScreen({Key? key}) : super(key: key);
 
+  @override
+  State<RegistrationScreen> createState() => _RegistrationScreenState();
+}
+
+class _RegistrationScreenState extends State<RegistrationScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
