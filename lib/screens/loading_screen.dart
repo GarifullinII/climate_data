@@ -1,10 +1,8 @@
-import 'package:climate_data/screens/registration_screen.dart';
 import 'package:climate_data/screens/welcome_screen.dart';
 import 'package:climate_data/services/weather.dart';
 import 'package:flutter/material.dart';
 import 'package:climate_data/screens/location_screen.dart';
 import '../components/rounded_button.dart';
-import '../utilities/constants.dart';
 
 class LoadingScreen extends StatefulWidget {
   static const String id = 'loading_screen';
@@ -18,7 +16,6 @@ class LoadingScreen extends StatefulWidget {
 class _LoadingScreenState extends State<LoadingScreen> {
   void _getLocationData() async {
     dynamic weatherData = await WeatherModel().getLocationWeather();
-
     Navigator.push(
       context,
       MaterialPageRoute(
@@ -35,7 +32,6 @@ class _LoadingScreenState extends State<LoadingScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
