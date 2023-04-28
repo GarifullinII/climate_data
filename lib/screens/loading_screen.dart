@@ -1,3 +1,4 @@
+import 'package:climate_data/screens/registration_screen.dart';
 import 'package:climate_data/services/weather.dart';
 import 'package:flutter/material.dart';
 import 'package:climate_data/screens/location_screen.dart';
@@ -33,13 +34,26 @@ class _LoadingScreenState extends State<LoadingScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
+
       body: Center(
-        child: RoundedButton(
-          color: Colors.blueAccent,
-          title: 'Get Weather',
-          onPressed: () {
-            _getLocationData();
-          },
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            RoundedButton(
+              color: Colors.lightBlueAccent,
+              title: 'Get Weather',
+              onPressed: () {
+                _getLocationData();
+              },
+            ),
+            RoundedButton(
+              color: Colors.blueAccent,
+              title: 'Sign Out',
+              onPressed: () {
+                Navigator.pushNamed(context, RegistrationScreen.id);
+              },
+            ),
+          ],
         ),
       ),
     );

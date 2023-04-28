@@ -90,14 +90,6 @@ class _LocationScreenState extends State<LocationScreen> {
                     onPressed: () async {
                       var typeName =
                           await Navigator.pushNamed(context, CityScreen.id);
-                      // var typeName = await Navigator.push(
-                      //   context,
-                      //   MaterialPageRoute(
-                      //     builder: (context) {
-                      //       return const CityScreen();
-                      //     },
-                      //   ),
-                      // );
 
                       if (typeName != null) {
                         var weatherData =

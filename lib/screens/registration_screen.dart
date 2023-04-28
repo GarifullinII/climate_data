@@ -1,7 +1,9 @@
 import 'package:climate_data/utilities/constants.dart';
 import 'package:flutter/material.dart';
-
 import '../components/rounded_button.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+
+import 'loading_screen.dart';
 
 class RegistrationScreen extends StatefulWidget {
   static const String id = 'registration_screen';
@@ -42,8 +44,9 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               onChanged: (value) {
                 email = value;
               },
-              decoration:
-                  kTextFieldDecoration.copyWith(hintText: 'Enter your email',),
+              decoration: kTextFieldDecoration.copyWith(
+                hintText: 'Enter your email',
+              ),
             ),
             const SizedBox(
               height: 8.0,
@@ -55,7 +58,8 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 password = value;
               },
               decoration: kTextFieldDecoration.copyWith(
-                  hintText: 'Enter your password',),
+                hintText: 'Enter your password',
+              ),
             ),
             const SizedBox(
               height: 24.0,
@@ -63,8 +67,24 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             RoundedButton(
               color: Colors.blueAccent,
               title: 'Register',
-              onPressed: () {
-                //Implement registration functionality.
+              onPressed: () async {
+                try {
+                  final newUser = await FirebaseAuth.instance.createUserWithEmailAndPassword(
+                    email: email,
+                    password: password,
+                  );
+                  print('User creation: success!');
+                  if (!mounted) return;
+                  Navigator.pushNamed(context, LoadingScreen.id);
+                } on FirebaseAuthException catch (e) {
+                  if (e.code == 'weak-password') {
+                    print('The password provided is too weak.');
+                  } else if (e.code == 'email-already-in-use') {
+                    print('The account already exists for that email.');
+                  }
+                } catch (e) {
+                  print(e);
+                }
               },
             ),
           ],

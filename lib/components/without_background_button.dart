@@ -19,6 +19,7 @@ class WithoutBackgroundButton extends StatelessWidget {
         child: Icon(
           icon,
           size: 25.0,
+          color: Colors.white,
         ),
       ),
     );

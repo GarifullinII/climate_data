@@ -26,11 +26,6 @@ class _WelcomeScreenState extends State<WelcomeScreen>
       vsync: this,
     );
 
-    // animation = CurvedAnimation(
-    //   parent: controller,
-    //   curve: Curves.decelerate,
-    // );
-
     animation = ColorTween(
       begin: Colors.red,
       end: Colors.black,
@@ -77,7 +72,7 @@ class _WelcomeScreenState extends State<WelcomeScreen>
             ),
             RoundedButton(
               color: Colors.lightBlueAccent,
-              title: 'Log In',
+              title: 'Sign In',
               onPressed: () {
                 Navigator.pushNamed(context, LoginScreen.id);
               },

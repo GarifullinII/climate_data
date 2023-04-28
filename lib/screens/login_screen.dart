@@ -1,6 +1,5 @@
 import 'package:climate_data/utilities/constants.dart';
 import 'package:flutter/material.dart';
-
 import '../components/rounded_button.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -61,7 +60,7 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
             RoundedButton(
               color: Colors.lightBlueAccent,
-              title: 'Log In',
+              title: 'Sign In',
               onPressed: () {
                 //Implement login functionality.
               },

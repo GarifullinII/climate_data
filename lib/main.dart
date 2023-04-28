@@ -4,9 +4,13 @@ import 'package:climate_data/screens/location_screen.dart';
 import 'package:climate_data/screens/login_screen.dart';
 import 'package:climate_data/screens/registration_screen.dart';
 import 'package:climate_data/screens/welcome_screen.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+
   runApp(const ClimateData());
 }
 
@@ -16,11 +20,6 @@ class ClimateData extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData.dark().copyWith(
-        textTheme: const TextTheme(
-          bodyLarge: TextStyle(color: Colors.black54),
-        ),
-      ),
       home: const WelcomeScreen(),
       initialRoute: WelcomeScreen.id,
       routes: {
