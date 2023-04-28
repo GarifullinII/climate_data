@@ -1,4 +1,5 @@
 import 'package:climate_data/screens/registration_screen.dart';
+import 'package:climate_data/screens/welcome_screen.dart';
 import 'package:climate_data/services/weather.dart';
 import 'package:flutter/material.dart';
 import 'package:climate_data/screens/location_screen.dart';
@@ -50,7 +51,7 @@ class _LoadingScreenState extends State<LoadingScreen> {
               color: Colors.blueAccent,
               title: 'Sign Out',
               onPressed: () {
-                Navigator.pushNamed(context, RegistrationScreen.id);
+                Navigator.pushNamed(context, WelcomeScreen.id);
               },
             ),
           ],

@@ -69,7 +69,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               title: 'Register',
               onPressed: () async {
                 try {
-                  final newUser = await FirebaseAuth.instance.createUserWithEmailAndPassword(
+                  final credential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
                     email: email,
                     password: password,
                   );
