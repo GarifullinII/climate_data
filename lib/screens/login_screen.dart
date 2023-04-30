@@ -15,6 +15,8 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  final emailTextController = TextEditingController();
+  final passwordTextController = TextEditingController();
   late String email;
   late String password;
   bool showSpinner = false;
@@ -42,6 +44,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 height: 48.0,
               ),
               TextField(
+                controller: emailTextController,
                 keyboardType: TextInputType.emailAddress,
                 textAlign: TextAlign.center,
                 onChanged: (value) {
@@ -55,6 +58,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 height: 8.0,
               ),
               TextField(
+                controller: passwordTextController,
                 obscureText: true,
                 textAlign: TextAlign.center,
                 onChanged: (value) {
@@ -71,6 +75,8 @@ class _LoginScreenState extends State<LoginScreen> {
                 color: Colors.lightBlueAccent,
                 title: 'Sign In',
                 onPressed: () async {
+                  emailTextController.clear();
+                  passwordTextController.clear();
                   setState(
                     () {
                       showSpinner = true;

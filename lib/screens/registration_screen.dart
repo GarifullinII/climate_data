@@ -15,6 +15,8 @@ class RegistrationScreen extends StatefulWidget {
 }
 
 class _RegistrationScreenState extends State<RegistrationScreen> {
+  final emailTextController = TextEditingController();
+  final passwordTextController = TextEditingController();
   late String email;
   late String password;
   bool showSpinner = false;
@@ -42,6 +44,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 height: 48.0,
               ),
               TextField(
+                controller: emailTextController,
                 keyboardType: TextInputType.emailAddress,
                 textAlign: TextAlign.center,
                 onChanged: (value) {
@@ -55,6 +58,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 height: 8.0,
               ),
               TextField(
+                controller: passwordTextController,
                 obscureText: true,
                 textAlign: TextAlign.center,
                 onChanged: (value) {
@@ -71,12 +75,13 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 color: Colors.blueAccent,
                 title: 'Register',
                 onPressed: () async {
+                  emailTextController.clear();
+                  passwordTextController.clear();
                   setState(
                     () {
                       showSpinner = true;
                     },
                   );
-
                   try {
                     final credential = await FirebaseAuth.instance
                         .createUserWithEmailAndPassword(
