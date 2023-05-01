@@ -7,7 +7,8 @@ import 'package:climate_data/screens/welcome_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
-void main() async {
+Future<void> main() async {
+  //run Firebase before application start
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
 
@@ -20,6 +21,7 @@ class ClimateData extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: const WelcomeScreen(),
       initialRoute: WelcomeScreen.id,
       routes: {

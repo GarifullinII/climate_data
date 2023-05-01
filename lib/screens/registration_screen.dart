@@ -2,6 +2,7 @@ import 'package:climate_data/utilities/constants.dart';
 import 'package:flutter/material.dart';
 import '../components/rounded_button.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import '../components/snack_bar.dart';
 import 'loading_screen.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 
@@ -33,11 +34,13 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              Hero(
-                tag: 'logo',
-                child: SizedBox(
-                  height: 200.0,
-                  child: Image.asset('images/logo.png'),
+              Flexible(
+                child: Hero(
+                  tag: 'logo',
+                  child: SizedBox(
+                    height: 200.0,
+                    child: Image.asset('images/logo.png'),
+                  ),
                 ),
               ),
               const SizedBox(
@@ -83,12 +86,10 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                     },
                   );
                   try {
-                    final credential = await FirebaseAuth.instance
-                        .createUserWithEmailAndPassword(
+                    await FirebaseAuth.instance.createUserWithEmailAndPassword(
                       email: email,
                       password: password,
                     );
-                    print('User creation: success!');
                     if (!mounted) return;
                     Navigator.pushNamed(context, LoadingScreen.id);
                     setState(
@@ -98,12 +99,39 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                     );
                   } on FirebaseAuthException catch (e) {
                     if (e.code == 'weak-password') {
-                      print('The password provided is too weak.');
+                      SnackBarService.showSnackBar(
+                        context,
+                        'The password provided is too weak.',
+                        true,
+                      );
+                      setState(
+                        () {
+                          showSpinner = false;
+                        },
+                      );
                     } else if (e.code == 'email-already-in-use') {
-                      print('The account already exists for that email.');
+                      SnackBarService.showSnackBar(
+                        context,
+                        'The account already exists for that email.',
+                        true,
+                      );
+                      setState(
+                        () {
+                          showSpinner = false;
+                        },
+                      );
                     }
                   } catch (e) {
-                    print(e);
+                    SnackBarService.showSnackBar(
+                      context,
+                      '$e',
+                      true,
+                    );
+                    setState(
+                      () {
+                        showSpinner = false;
+                      },
+                    );
                   }
                 },
               ),

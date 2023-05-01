@@ -1,3 +1,4 @@
+import 'package:climate_data/components/snack_bar.dart';
 import 'package:climate_data/utilities/constants.dart';
 import 'package:flutter/material.dart';
 import '../components/rounded_button.dart';
@@ -22,6 +23,14 @@ class _LoginScreenState extends State<LoginScreen> {
   bool showSpinner = false;
 
   @override
+  void dispose() {
+    emailTextController.dispose();
+    passwordTextController.dispose();
+
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
@@ -33,11 +42,13 @@ class _LoginScreenState extends State<LoginScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              Hero(
-                tag: 'logo',
-                child: SizedBox(
-                  height: 200.0,
-                  child: Image.asset('images/logo.png'),
+              Flexible(
+                child: Hero(
+                  tag: 'logo',
+                  child: SizedBox(
+                    height: 200.0,
+                    child: Image.asset('images/logo.png'),
+                  ),
                 ),
               ),
               const SizedBox(
@@ -73,7 +84,7 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               RoundedButton(
                 color: Colors.lightBlueAccent,
-                title: 'Sign In',
+                title: 'Log In',
                 onPressed: () async {
                   emailTextController.clear();
                   passwordTextController.clear();
@@ -82,10 +93,8 @@ class _LoginScreenState extends State<LoginScreen> {
                       showSpinner = true;
                     },
                   );
-
                   try {
-                    final credential =
-                        await FirebaseAuth.instance.signInWithEmailAndPassword(
+                    await FirebaseAuth.instance.signInWithEmailAndPassword(
                       email: email,
                       password: password,
                     );
@@ -98,9 +107,27 @@ class _LoginScreenState extends State<LoginScreen> {
                     );
                   } on FirebaseAuthException catch (e) {
                     if (e.code == 'user-not-found') {
-                      print('No user found for that email.');
+                      SnackBarService.showSnackBar(
+                        context,
+                        'No user found for that email.',
+                        true,
+                      );
+                      setState(
+                        () {
+                          showSpinner = false;
+                        },
+                      );
                     } else if (e.code == 'wrong-password') {
-                      print('Wrong password provided for that user.');
+                      SnackBarService.showSnackBar(
+                        context,
+                        'Wrong password provided for that user.',
+                        true,
+                      );
+                      setState(
+                        () {
+                          showSpinner = false;
+                        },
+                      );
                     }
                   }
                 },

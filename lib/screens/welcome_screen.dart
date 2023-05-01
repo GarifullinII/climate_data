@@ -50,11 +50,13 @@ class _WelcomeScreenState extends State<WelcomeScreen>
           children: [
             Row(
               children: [
-                Hero(
-                  tag: 'logo',
-                  child: SizedBox(
-                    height: 140.0,
-                    child: Image.asset('images/logo.png'),
+                Flexible(
+                  child: Hero(
+                    tag: 'logo',
+                    child: SizedBox(
+                      height: 140.0,
+                      child: Image.asset('images/logo.png'),
+                    ),
                   ),
                 ),
                 Text(
@@ -72,7 +74,7 @@ class _WelcomeScreenState extends State<WelcomeScreen>
             ),
             RoundedButton(
               color: Colors.lightBlueAccent,
-              title: 'Sign In',
+              title: 'Log In',
               onPressed: () {
                 Navigator.pushNamed(context, LoginScreen.id);
               },
