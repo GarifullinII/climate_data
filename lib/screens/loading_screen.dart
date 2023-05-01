@@ -16,6 +16,7 @@ class LoadingScreen extends StatefulWidget {
 class _LoadingScreenState extends State<LoadingScreen> {
   void _getLocationData() async {
     dynamic weatherData = await WeatherModel().getLocationWeather();
+    if (!mounted) return;
     Navigator.push(
       context,
       MaterialPageRoute(
